@@ -1,79 +1,49 @@
-// export function homePage() {
-//     const DivContent = document.querySelector('#content')
 
-//     // // background
-//     // const background = document.querySelector('div')
-//     // background.classList.add('background');
+// Body
 
-//     // // heading
-//     // const heading = document.createElement('h1');
-//     // heading.classList.add('header');
-//     // heading.textContent = 'Restaurant Name';
+function mainBody() {
 
-    
-//     // Button
-//     // const homeLinks = document.createElement('button');
-//     // homeLinks.textContent = 'Home';
-//     // homeLinks.classList.add('header');
+  const mainBody = document.createElement("main");
+  mainBody.classList.add("mainBody");
 
-//     // const menuLinks = document.createElement('button');
-//     // menuLinks.textContent = 'Menu';
-//     // menuLinks.classList.add('links');
+  mainBody.appendChild(homeBody());
 
-//     // Footer
-//     // const footer = document.createElement('div');
+  return mainBody;
+}
 
 
-//     // DivContent.appendChild(heading);
-//     // DivContent.appendChild(nav);
-//     // DivContent.appendChild(homeLinks);
-//     // DivContent.appendChild(menuLinks);
-//     // DivContent.appendChild(background);
+function homeBody() {
 
-// }
+  const home = document.createElement("div");
+  home.classList.add("text-container");
 
+  const foodImage = document.createElement("img");
+  foodImage.src = "images/foodphoto.jpg";
+  foodImage.alt = "Food on a plate";
 
+  const paragraph1 = document.createElement("p");
+  paragraph1.textContent = "Come and enjoy and amazing meal.";
+  paragraph1.classList.add("text");
 
- function createHeader() {
-    const nav = document.createElement("nav");
-    // const nav = document.querySelector('#content')
-    nav.classList.add("links");
-
-
-    const heading = document.createElement('h1');
-    heading.classList.add('heading');
-    heading.textContent = 'Restaurant Name';
+  const paragraph2 = document.createElement("p");
+  paragraph2.textContent = "And share it with friends.";
+  paragraph2.classList.add("text");
 
 
-    const homeButton = document.createElement("button");
-    homeButton.classList.add("button");
-    homeButton.textContent = "Home";
+  home.appendChild(paragraph1);
+  home.appendChild(foodImage);
+  home.appendChild(paragraph2);
 
-    const menuButton = document.createElement("button");
-    menuButton.classList.add("button");
-    menuButton.textContent = "Menu";
-
-    const contactButton = document.createElement("button");
-    contactButton.classList.add("button");
-    contactButton.textContent = "Contact";
-
-
-    nav.appendChild(heading);
-    nav.appendChild(homeButton);
-    nav.appendChild(menuButton);
-    nav.appendChild(contactButton);
-
-    return nav;
+  return home;
 }
 
 
 
-
-export function initializeWebsite() {
-    const content = document.getElementById("content");
-  
-    content.appendChild(createHeader());
-    // content.appendChild(createMain());
-    // content.appendChild(createFooter());
-  
+  function loadHome() {
+    const content = document.getElementById("main");
+    main.textContent = "";
+    content.appendChild(mainBody());
   }
+
+
+  export default loadHome;

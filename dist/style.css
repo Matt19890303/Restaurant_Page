@@ -6,7 +6,10 @@
 
 body, html {
 	height: 100vh;
-	color: white;    
+	color: white;
+  background-image: url("./images/nightTime.jpg");
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 
@@ -14,25 +17,21 @@ body, html {
     /* The image used */
     /* Adds the blur effect */
     background-image: url("./images/nightTime.jpg");
-    filter: blur(8px);
-    -webkit-filter: blur(8px);
     /* Full height - this must line up with html height of 100%*/
     height: 100vh;
     /* Center and scale the image nicely */
     background-position: center;
     background-size: cover;
-    position: relative;
+    position: absolute;
   }
 
 
-
+/* Header */
 .heading {
     margin-top: 1rem;
     font-family: 'Tangerine', cursive;
     font-size: 5rem;
 }
-
-
 
 .links {
     text-align: center;
@@ -41,12 +40,11 @@ body, html {
     color: white;
     font-size: 25px;
     padding: 5px;
-    position: absolute;
-    top: 0%;
+    z-index: 10;
 }
 
 
-button {
+.loadPageButtonbutton {
     margin: 30px 30px 20px 30px;
     color: white;
     font-size: 24px;
@@ -56,37 +54,44 @@ button {
     transition: transform .3s;
   }
 
+  .loadPageButtonbutton.active {
+    border-bottom: 2px solid #eee;
+  }
 
-button:hover {
+  .loadPageButtonbutton:hover {
     color: rgba(228, 226, 226, 0.966);
     transform: translateY(-20%);
     cursor: pointer;
 }
 
 
+/* Body */
+
+.mainBody {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 50px;
+}
 
 .text-container {
     display: grid;
+    margin: 100px 0 200px 0;
     justify-items: center;
     align-items: center;
     /* Makes the block the content is in see through */
     /* Black w/opacity/see-through */
     background-color: rgba(17, 17, 17, 0.7);
-    /* border: 1px solid white; */
     width: 40%;
-    height: 50%;
-    padding: 10px;
-    /* Puts the box that content is in in the center of the background image */
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    height: 60%;
+    padding: 30px;
 }
 
 .text-container img {
     width: 400px;
     height: 320px;
     border-radius: 50%;
+    margin: 15px;
 }
 
 .text {
@@ -96,21 +101,93 @@ button:hover {
 
 
 
-.footer-container {
+/* Menu page */
+
+.menu {
+  margin-top: 100px;
+  margin-bottom: 50px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 30px;
+  gap: 30px;
+  animation: fadeIn 1.5s;
+  background-color: rgba(17, 17, 17, 0.6);
+  width: 40%;
+}
+  
+  .menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 320px;
+    height: 320px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: rgba(17, 17, 17, 0.7);
+    transition: background-color 0.3s;
+  }
+  
+  .menu-item:hover {
+    background-color: rgba(63, 62, 62, 0.7);
+  }
+  
+  .menu-item img {
+    width: 70%;
+  }
+  
+  .menu-item p {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  /* Contact */
+
+  .map-container {
+    display: grid;
+    margin: 100px 0 200px 0;
+    padding-bottom: 20px;
+    justify-items: center;
+    align-items: center;
+    /* Makes the block the content is in see through */
+    /* Black w/opacity/see-through */
+    background-color: rgba(17, 17, 17, 0.7);
+    width: 40%;
+    height: 60%;
+}
+
+.map-container-heading {
+  padding: 10px;
+}
+
+.map-container iframe {
+    width: 650px;
+    height: 400px;
+}
+
+.numbers {
+  display: flex;
+  margin: 20px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+
+.icon {
+  margin-right: 15px;
+  -webkit-filter: invert(100%);
+}
+
+  /* Footer */
+
+  .footer-container {
     display: flex;
     justify-content: center;
     align-items: center;
     /* Makes the block the content is in see through */
     /* Black w/opacity/see-through */
     background-color: rgba(17, 17, 17, 0.8);
-    /* border: 1px solid white; */
     width: 100%;
     padding: 8px;
-    /* Puts the box that content is in in the center of the background image */
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 
@@ -119,17 +196,17 @@ button:hover {
     color: white;
 }
 
+.footer p {
+    margin-top: 5px;
+}
+
 .github-pic {
-    display: flex;
-    margin-left: 20px;
+    margin-left: 10px;
     width: 25px;
     /* inverts the colour */
    -webkit-filter: invert(100%);
 }
 
-/* .footer:hover {
-    cursor: pointer;
-} */
 
 .github-pic:hover {
     cursor: pointer;
